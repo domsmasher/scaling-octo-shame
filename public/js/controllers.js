@@ -2,8 +2,8 @@ app.controller('MainCtrl', ['$scope', 'Page', function($scope, Page) {
     $scope.page = Page;
 }]);
 
-app.controller('HomeCtrl', ['$scope', 'newsData', function($scope, newsData) {
-    //$scope.topNews = newsData.getTopNews();
+app.controller('HomeCtrl', ['$scope', 'Page', function($scope, Page) {
+    Page.setTitle('');
 }]);
 
 app.controller('TopNewsCtrl', ['$scope', 'newsData', function($scope, newsData) {

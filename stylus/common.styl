@@ -5,7 +5,6 @@
     -webkit-box-sizing: border-box
     box-sizing: border-box
 
-
 html
     background: white;
     font-size: 62.5%;
@@ -23,6 +22,11 @@ body
     font-size: 16px;
     line-height: 1.5;
     color: black;
+a
+    color: black
+    text-decoration: none
+    &:hover
+        text-decoration: underline
 
 ul
     margin: 0
@@ -35,8 +39,9 @@ ul
 
 .header
     width: 100%
-    padding: 2em 0
+    padding: .5em 1em
     background-color: #feaa7f
+    border-top: 10px solid rgb(165, 83, 41)
 
 .img-container
     position: relative
@@ -47,15 +52,23 @@ ul
 
 .list-item
     min-height: 75px
-    h3
-        margin: 0 0 0 140px
+
+.text-container
+     margin-left: 140px
+     h3
+        margin: 0
+     p
+        margin: .35em 0
 
 .logo-container
     position: relative
     z-index: 30
     color: #fff;
-    width: 130px
+    width: 305px
     margin: 0 auto
+    h1
+        margin: 0
+        line-height: 1
     &:before
         position: absolute
         top: 0
@@ -86,6 +99,18 @@ ul
 
 .claim
     font-family: 'League Gothic'
-    text-align: center
     color: #1b2157
+    text-align: center
+    margin-bottom: 0
 
+@media screen and (min-width: 1024px)
+    .logo-container
+        display: inline-block
+        vertical-align: top
+        margin: 0
+
+    .claim
+        display: inline-block
+        vertical-align: bottom
+        margin: 35px 0 0 15px
+        text-align: left

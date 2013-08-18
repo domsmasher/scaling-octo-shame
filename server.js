@@ -37,6 +37,14 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 
+app.get('/', function(req,res) {
+    res.sendfile('public/index.html');
+});
+
+app.get('/:slug/', function(req,res) {
+    res.sendfile('public/index.html');
+});
+
 app.get('/public/partials/:fileName', function (req, res) {
     if (req.param('fileName')) {
         fs.readFile('./public/partials/' + req.param('fileName'), function (err, html) {

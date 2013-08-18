@@ -61,7 +61,7 @@ app.factory('Page', function(){
     return {
         title: function() { return title; },
         setTitle: function(newTitle) {
-            title = newTitle + ' - ' + defaultTitle;
+            title = (newTitle ? newTitle + ' - ': '') + defaultTitle;
         }
     };
 });

@@ -6,8 +6,11 @@
                     <div class="img-container">
                         <img ng-src="{{news.featured_image}}?w=125&h75&crop=1" alt=""/>
                     </div>
-                    <h3 ng-bind-html-unsafe="news.title"></h3>
-                    <p ng-bind-html-unsafe="news.excerpt"></p>
+                    <div class="text-container">
+                        <h3 ng-bind-html-unsafe="news.title"></h3>
+                        <p ng-bind-html-unsafe="news.excerpt"></p>
+                    </div>
+
                 </a>
             </li>
         </ul>
@@ -22,7 +25,11 @@
                     <div class="img-container">
                         <img ng-src="{{news.featured_image}}?w=125&h75&crop=1" alt=""/>
                     </div>
-                    <h3 ng-bind-html-unsafe="news.title"></h3>
+                    <div class="text-container">
+                        <h3 ng-bind-html-unsafe="news.title"></h3>
+                        <p ng-bind-html-unsafe="news.excerpt"></p>
+                    </div>
+
                 </a>
             </li>
         </ul>
