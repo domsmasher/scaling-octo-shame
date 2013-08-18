@@ -41,7 +41,10 @@ ul
         clerfix()
 
 img
-    max-width: 100%
+.wp-caption
+    display: block
+    max-width: 100% !important
+    height: auto !important
 
 .header
     width: 100%
@@ -73,7 +76,7 @@ img
     position: relative
     z-index: 30
     color: #fff;
-    width: 305px
+    width: 100%
     margin: 0 auto
     &:before
         position: absolute
@@ -97,6 +100,7 @@ img
         z-index: 3
     h1
         margin: 0
+        font-size: 2.8em
         line-height: 1
     a
         color: #fff
@@ -121,6 +125,9 @@ img
         display: inline-block
         vertical-align: top
         margin: 0
+        width: 305px
+        h1
+            font-size: 3em
 
     .claim
         display: inline-block

@@ -75,8 +75,11 @@ ul li {
   list-style: none;
   padding: 5px 0;
 }
-img {
-  max-width: 100%;
+img,
+.wp-caption {
+  display: block;
+  max-width: 100% !important;
+  height: auto !important;
 }
 .header {
   width: 100%;
@@ -111,7 +114,7 @@ img {
   position: relative;
   z-index: 30;
   color: #fff;
-  width: 305px;
+  width: 100%;
   margin: 0 auto;
 }
 .logo-container:before {
@@ -138,6 +141,7 @@ img {
 }
 .logo-container h1 {
   margin: 0;
+  font-size: 2.8em;
   line-height: 1;
 }
 .logo-container a {
@@ -165,6 +169,10 @@ img {
     display: inline-block;
     vertical-align: top;
     margin: 0;
+    width: 305px;
+  }
+  .logo-container h1 {
+    font-size: 3em;
   }
   .claim {
     display: inline-block;
