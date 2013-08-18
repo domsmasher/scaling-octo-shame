@@ -1,9 +1,12 @@
 *
-*:before
-*:after
     -moz-box-sizing: border-box
     -webkit-box-sizing: border-box
     box-sizing: border-box
+    &:before
+    &:after
+        -moz-box-sizing: border-box
+        -webkit-box-sizing: border-box
+        box-sizing: border-box
 
 html
     background: white;
@@ -18,7 +21,7 @@ body
     margin: 0;
     padding: 0;
     width: 100%;
-    background-color: transparent;
+    background-color: rgb(255, 226, 185)
     font-size: 16px;
     line-height: 1.5;
     color: black;
@@ -42,7 +45,7 @@ img
 
 .header
     width: 100%
-    padding: .5em 1em
+    padding: 1em
     background-color: #feaa7f
     border-top: 10px solid rgb(165, 83, 41)
 
@@ -55,6 +58,9 @@ img
 
 .list-item
     min-height: 75px
+    margin-bottom: 15px
+    a
+        color: #1b2157
 
 .text-container
      margin-left: 140px
@@ -69,9 +75,6 @@ img
     color: #fff;
     width: 305px
     margin: 0 auto
-    h1
-        margin: 0
-        line-height: 1
     &:before
         position: absolute
         top: 0
@@ -92,6 +95,13 @@ img
         border-width: 38px 38px 0 0;
         border-color: #e40136 transparent transparent transparent;
         z-index: 3
+    h1
+        margin: 0
+        line-height: 1
+    a
+        color: #fff
+        &:hover
+            text-decoration: none
     .logo
         position: relative
         z-index: 4

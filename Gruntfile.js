@@ -85,7 +85,7 @@ module.exports = function(grunt) {
                 options: {
                     compress: false,
                     paths: ['path/to/import', 'another/to/import'],
-                    linenos: true,
+                    linenos: false,
                     urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
                     use: [
                         require('nib') // use stylus plugin at compile time

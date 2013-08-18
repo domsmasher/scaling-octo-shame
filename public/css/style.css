@@ -1,244 +1,3 @@
-
-/* line 1 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\stylus\lib\functions\index.styl */
-
-/* line 14 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\index.styl */
-
-/* line 2 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\border.styl */
-
-/* line 2 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\clearfix.styl */
-
-/* line 2 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\color-image.styl */
-
-/* line 6 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\flex.styl */
-
-/* line 154 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\gradients.styl */
-
-/* line 154 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\config.styl */
-
-/* line 2 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\iconic.styl */
-
-/* line 2 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\image.styl */
-
-/* line 25 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\overflow.styl */
-
-/* line 3 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\positions.styl */
-
-/* line 3 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\reset.styl */
-
-/* line 5 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\text\index.styl */
-
-/* line 2 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\text\aliases.styl */
-
-/* line 2 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\text\ellipsis.styl */
-
-/* line 11 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\text\hide-text.styl */
-
-/* line 9 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\text\replace-text.styl */
-
-/* line 557 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\vendor.styl */
-
-/* line 557 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\config.styl */
-
-/* line 12 : C:\node\scaling-octo-shame\node_modules\grunt-contrib-stylus\node_modules\nib\lib\nib\size.styl */
-
-/* line 1 : C:\node\scaling-octo-shame\stylus\mixins.styl */
-
-/* line 1 : C:\node\scaling-octo-shame\stylus\common.styl */
-@media screen and (min-width: 1024px) {
-
-/* line 107 : C:\node\scaling-octo-shame\stylus\common.styl */
-    .logo-container {
-      display: inline-block;
-      vertical-align: top;
-      margin: 0;
-    }
-
-/* line 112 : C:\node\scaling-octo-shame\stylus\common.styl */
-    .claim {
-      display: inline-block;
-      vertical-align: bottom;
-      margin: 35px 0 0 15px;
-      text-align: left;
-    }
-}
- {
-*
-  *: before;
-
-}
-*
-
-/* line 3 : C:\node\scaling-octo-shame\stylus\common.styl */
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* line 8 : C:\node\scaling-octo-shame\stylus\common.styl */
-html {
-  background: #fff;
-  font-size: 62.5%;
-  -webkit-overflow-scrolling: touch;
-  -webkit-tap-highlight-color: #f3f5f6;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-}
-
-/* line 16 : C:\node\scaling-octo-shame\stylus\common.styl */
-body {
-  font-family: serif;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-color: transparent;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #000;
-}
-
-/* line 25 : C:\node\scaling-octo-shame\stylus\common.styl */
-a {
-  color: #000;
-  text-decoration: none;
-}
-
-/* line 28 : C:\node\scaling-octo-shame\stylus\common.styl */
-a:hover {
-  text-decoration: underline;
-}
-
-/* line 31 : C:\node\scaling-octo-shame\stylus\common.styl */
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* line 35 : C:\node\scaling-octo-shame\stylus\common.styl */
-ul li {
-  list-style: none;
-  padding: 5px 0;
-}
-
-/* line 40 : C:\node\scaling-octo-shame\stylus\common.styl */
-.header {
-  width: 100%;
-  padding: 0.5em 1em;
-  background-color: #feaa7f;
-  border-top: 10px solid #a55329;
-}
-
-/* line 46 : C:\node\scaling-octo-shame\stylus\common.styl */
-.img-container {
-  position: relative;
-  float: left;
-  width: 125px;
-  height: 75px;
-  overflow: hidden;
-}
-
-/* line 53 : C:\node\scaling-octo-shame\stylus\common.styl */
-.list-item {
-  min-height: 75px;
-}
-
-/* line 56 : C:\node\scaling-octo-shame\stylus\common.styl */
-.text-container {
-  margin-left: 140px;
-}
-
-/* line 58 : C:\node\scaling-octo-shame\stylus\common.styl */
-.text-container h3 {
-  margin: 0;
-}
-
-/* line 60 : C:\node\scaling-octo-shame\stylus\common.styl */
-.text-container p {
-  margin: 0.35em 0;
-}
-
-/* line 63 : C:\node\scaling-octo-shame\stylus\common.styl */
-.logo-container {
-  position: relative;
-  z-index: 30;
-  color: #fff;
-  width: 305px;
-  margin: 0 auto;
-}
-
-/* line 69 : C:\node\scaling-octo-shame\stylus\common.styl */
-.logo-container h1 {
-  margin: 0;
-  line-height: 1;
-}
-
-/* line 72 : C:\node\scaling-octo-shame\stylus\common.styl */
-.logo-container:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  background-color: #1b2157;
-  z-index: 2;
-}
-
-/* line 81 : C:\node\scaling-octo-shame\stylus\common.styl */
-.logo-container:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  width: 0px;
-  height: 0px;
-  border-style: solid;
-  border-width: 38px 38px 0 0;
-  border-color: #e40136 transparent transparent transparent;
-  z-index: 3;
-}
-
-/* line 92 : C:\node\scaling-octo-shame\stylus\common.styl */
-.logo-container .logo {
-  position: relative;
-  z-index: 4;
-  padding: 5px 10px;
-}
-
-/* line 97 : C:\node\scaling-octo-shame\stylus\common.styl */
-.main-content {
-  padding: 30px 10px;
-}
-
-/* line 100 : C:\node\scaling-octo-shame\stylus\common.styl */
-.claim {
-  font-family: 'League Gothic';
-  color: #1b2157;
-  text-align: center;
-  margin-bottom: 0;
-}
-@media screen and (min-width: 1024px) {
-
-/* line 107 : C:\node\scaling-octo-shame\stylus\common.styl */
-  .logo-container {
-    display: inline-block;
-    vertical-align: top;
-    margin: 0;
-  }
-
-/* line 112 : C:\node\scaling-octo-shame\stylus\common.styl */
-  .claim {
-    display: inline-block;
-    vertical-align: bottom;
-    margin: 35px 0 0 15px;
-    text-align: left;
-  }
-}
-
-/* line 1 : C:\node\scaling-octo-shame\stylus\typography.styl */
 @font-face {
   font-family: 'League Gothic';
   src: url("../fonts/league-gothic/leaguegothic-regular-webfont.eot");
@@ -246,8 +5,6 @@ ul li {
   font-weight: normal;
   font-style: normal;
 }
-
-/* line 9 : C:\node\scaling-octo-shame\stylus\typography.styl */
 h1,
 h2,
 h3,
@@ -260,18 +17,159 @@ h6 {
   text-transform: uppercase;
   line-height: 1.2;
 }
-
-/* line 21 : C:\node\scaling-octo-shame\stylus\typography.styl */
 h1 {
   font-size: 3em;
 }
-
-/* line 24 : C:\node\scaling-octo-shame\stylus\typography.styl */
 h2 {
   font-size: 2em;
 }
-
-/* line 27 : C:\node\scaling-octo-shame\stylus\typography.styl */
 h3 {
   font-size: 1.5em;
+}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  background: #fff;
+  font-size: 62.5%;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: #f3f5f6;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body {
+  font-family: serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #ffe2b9;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul li {
+  list-style: none;
+  padding: 5px 0;
+}
+img {
+  max-width: 100%;
+}
+.header {
+  width: 100%;
+  padding: 1em;
+  background-color: #feaa7f;
+  border-top: 10px solid #a55329;
+}
+.img-container {
+  position: relative;
+  float: left;
+  width: 125px;
+  height: 75px;
+  overflow: hidden;
+}
+.list-item {
+  min-height: 75px;
+  margin-bottom: 15px;
+}
+.list-item a {
+  color: #1b2157;
+}
+.text-container {
+  margin-left: 140px;
+}
+.text-container h3 {
+  margin: 0;
+}
+.text-container p {
+  margin: 0.35em 0;
+}
+.logo-container {
+  position: relative;
+  z-index: 30;
+  color: #fff;
+  width: 305px;
+  margin: 0 auto;
+}
+.logo-container:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: #1b2157;
+  z-index: 2;
+}
+.logo-container:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 38px 38px 0 0;
+  border-color: #e40136 transparent transparent transparent;
+  z-index: 3;
+}
+.logo-container h1 {
+  margin: 0;
+  line-height: 1;
+}
+.logo-container a {
+  color: #fff;
+}
+.logo-container a:hover {
+  text-decoration: none;
+}
+.logo-container .logo {
+  position: relative;
+  z-index: 4;
+  padding: 5px 10px;
+}
+.main-content {
+  padding: 30px 10px;
+}
+.claim {
+  font-family: 'League Gothic';
+  color: #1b2157;
+  text-align: center;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 1024px) {
+  .logo-container {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+  }
+  .claim {
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 35px 0 0 15px;
+    text-align: left;
+  }
 }
