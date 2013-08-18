@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SOSApp" ng-controller="MainCtrl">
+<head>
+	<meta charset="utf-8">	
+	<title ng-bind-html-unsafe="page.title()"></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="fragment" content="!">
+    <link href="css/normalize.css" rel="stylesheet" media="all">
+    <link href="css/style.css" rel="stylesheet" media="all">
+</head>
+<body ng-cloak>
+    <header class="header">
+        <h3 class="claim">
+            I'm responsable for the code, not for the content...
+        </h3>
+        <div class="logo-container">
+            <h1 class="logo">Mattro</h1>
+        </div>
+    </header>
+
+    <div class="main-content" ng-view></div>
+
+    <script src="js/lib/angular.js"></script>
+    <script src="js/lib/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+</body>
+</html>

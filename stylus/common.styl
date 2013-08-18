@@ -1,0 +1,91 @@
+*
+*:before
+*:after
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+
+
+html
+    background: white;
+    font-size: 62.5%;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: #f3f5f6;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+
+body
+    font-family: serif
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 1.5;
+    color: black;
+
+ul
+    margin: 0
+    padding: 0
+    list-style: none
+    & li
+        list-style: none
+        padding: 5px 0
+        clerfix()
+
+.header
+    width: 100%
+    padding: 2em 0
+    background-color: #feaa7f
+
+.img-container
+    position: relative
+    float: left
+    width: 125px
+    height: 75px
+    overflow: hidden
+
+.list-item
+    min-height: 75px
+    h3
+        margin: 0 0 0 140px
+
+.logo-container
+    position: relative
+    z-index: 30
+    color: #fff;
+    width: 130px
+    margin: 0 auto
+    &:before
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        content: ""
+        background-color: #1b2157
+        z-index: 2
+    &:after
+        position: absolute
+        top: 0
+        left: 0
+        content: ""
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 38px 38px 0 0;
+        border-color: #e40136 transparent transparent transparent;
+        z-index: 3
+    .logo
+        position: relative
+        z-index: 4
+        padding: 5px 10px
+
+.main-content
+    padding: 30px 10px
+
+.claim
+    font-family: 'League Gothic'
+    text-align: center
+    color: #1b2157
+

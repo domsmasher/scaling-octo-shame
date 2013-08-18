@@ -1,4 +1,4 @@
-scaling-octo-shame
+Scaling Octo Shame
 ==================
 
 Scaling Octo Shame
