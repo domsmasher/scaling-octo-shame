@@ -1,7 +1,9 @@
 <div ng-controller="HomeCtrl">
     <h1 ng-bind-html-unsafe="oneNews.title"></h1>
     <div ng-bind-html-unsafe="oneNews.content"></div>
-    <li ng-repeat="tag in oneNews.tags" class="tag-item">
-        {{ tag.name }}
-    </li>
+    <ul>
+        <li ng-repeat="tag in oneNews.tags" class="tag-item">
+            {{ tag.name }}
+        </li>
+    </ul>
 </div>
