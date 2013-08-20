@@ -15,11 +15,31 @@ app.controller('TopNewsCtrl', ['$scope', 'newsData', function($scope, newsData) 
 }]);
 
 app.controller('NewsCtrl', ['$scope', 'newsData', function($scope, newsData) {
+    var newsObj = newsData.getNews();
+    $scope.currentPage = 1;
+
     $scope.loading = true;
-    $scope.news = newsData.getNews();
-    $scope.news.then(function () {
+    $scope.newsLista = [];
+    newsObj.then(function (newsList) {
+
+        angular.forEach(newsList.posts, function (value, key) {
+            $scope.newsLista.push(value);
+        });
         $scope.loading = false;
     });
+
+    $scope.moreContent = function () {
+        $scope.loading = true;
+        var more = newsData.getPageNews($scope.currentPage);
+
+        more.then(function (newsList) {
+            angular.forEach(newsList.posts, function (value, key) {
+                $scope.newsLista.push(value);
+            });
+            $scope.currentPage += 1;
+            $scope.loading = false;
+        });
+    };
 }]);
 
 app.controller('DetailCtrl', ['$scope', '$routeParams', 'newsData', 'Page', function($scope, $routeParams, newsData, Page) {

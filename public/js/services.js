@@ -22,7 +22,7 @@ app.factory('newsData', ['$http', '$log', '$q', function ($http, $log, $q) {
 
             $http({
                 method:'JSONP',
-                url: "https://public-api.wordpress.com/rest/v1/sites/metrouk2.wordpress.com/posts/?number=25&page=1&callback=JSON_CALLBACK"
+                url: "https://public-api.wordpress.com/rest/v1/sites/metrouk2.wordpress.com/posts/?number=10&page=1&callback=JSON_CALLBACK"
             })
             .success(function (data, status, headers, config) {
                 deferred.resolve( data );
@@ -47,6 +47,23 @@ app.factory('newsData', ['$http', '$log', '$q', function ($http, $log, $q) {
             .error(function (data, status, headers, config) {
                 deferred.reject( status );
             });
+
+            return deferred.promise;
+
+        },
+        getPageNews: function (page) {
+            var deferred = $q.defer();
+
+            $http({
+                method:'JSONP',
+                url: "https://public-api.wordpress.com/rest/v1/sites/metrouk2.wordpress.com/posts/?number=10&page=" + (page +=1) + "&callback=JSON_CALLBACK"
+            })
+                .success(function (data, status, headers, config) {
+                    deferred.resolve( data );
+                })
+                .error(function (data, status, headers, config) {
+                    deferred.reject( status );
+                });
 
             return deferred.promise;
 

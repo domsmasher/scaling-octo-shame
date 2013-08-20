@@ -20,7 +20,7 @@
     <div ng-controller="NewsCtrl">
         <h1>Latest news</h1>
         <ul>
-            <li ng-repeat="news in news.posts" class="list-item">
+            <li ng-repeat="news in newsLista" class="list-item">
                 <a href="/{{news.slug}}/">
                     <div class="img-container">
                         <img ng-src="{{news.featured_image}}?w=228&h=100&crop=1" alt=""/>
@@ -33,6 +33,7 @@
                 </a>
             </li>
         </ul>
+        <div ng-click="moreContent()">More content</div>
         <div ng-show="loading">Loading...</div>
     </div>
 </div>
