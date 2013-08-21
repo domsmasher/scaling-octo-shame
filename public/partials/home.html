@@ -14,7 +14,7 @@
                 </a>
             </li>
         </ul>
-        <div ng-show="loading">Loading...</div>
+        <div ng-show="loading" class="ajax-loader">Loading...</div>
     </div>
 
     <div ng-controller="NewsCtrl">
@@ -33,7 +33,7 @@
                 </a>
             </li>
         </ul>
-        <div ng-click="moreContent()">More content</div>
-        <div ng-show="loading">Loading...</div>
+        <div ng-hide="loading" ng-click="moreContent()" class="more-button">More content</div>
+        <div ng-show="loading" class="ajax-loader">Loading...</div>
     </div>
 </div>
