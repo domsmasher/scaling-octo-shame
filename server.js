@@ -26,7 +26,7 @@ app.use(express.cookieParser('scalingoctoshame'));
 app.use(express.session());
 app.use(app.router);
 app.use(stylus.middleware(
-    { src: __dirname + '/public'
+    { src: __dirname + '/public/app'
         , compile: compile
     }
 ))
@@ -38,16 +38,16 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function(req,res) {
-    res.sendfile('public/index.html');
+    res.sendfile('public/app/index.html');
 });
 
 app.get('/:slug/', function(req,res) {
-    res.sendfile('public/index.html');
+    res.sendfile('public/app/index.html');
 });
 
-app.get('/public/partials/:fileName', function (req, res) {
+app.get('/public/app/views/:fileName', function (req, res) {
     if (req.param('fileName')) {
-        fs.readFile('./public/partials/' + req.param('fileName'), function (err, html) {
+        fs.readFile('./public/app/views/' + req.param('fileName'), function (err, html) {
             if (err) {
                 throw err;
             }
