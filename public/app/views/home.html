@@ -1,7 +1,7 @@
 <div ng-controller="HomeCtrl">
     <div ng-controller="TopNewsCtrl">
         <ul>
-            <li ng-repeat="news in topNews.posts" ng-class="{'first':$first}" class="list-item">
+            <li ng-repeat="news in topNews" ng-class="{'first':$first}" class="list-item">
                 <a href="/{{news.slug}}/">
                     <div class="img-container">
                         <img ng-src="{{news.featured_image}}?w=228&h=100&crop=1" alt=""/>
@@ -20,7 +20,7 @@
     <div ng-controller="NewsCtrl">
         <h1>Latest news</h1>
         <ul>
-            <li ng-repeat="news in newsLista" class="list-item">
+            <li ng-repeat="news in newsList" class="list-item">
                 <a href="/{{news.slug}}/">
                     <div class="img-container">
                         <img ng-src="{{news.featured_image}}?w=228&h=100&crop=1" alt=""/>

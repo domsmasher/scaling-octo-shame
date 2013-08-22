@@ -1,41 +1,70 @@
-app.factory('newsData', ['$http', '$log', '$q', function ($http, $log, $q) {
+app.factory('newsData', ['$http', '$resource', '$log', '$q', function ($http, $resource, $log, $q) {
     return {
+        newsList: [],
         getNewsList: function (params) {
             var deferred = $q.defer(),
-                attrs = params || {},
-                number = attrs.number || 5,
-                page = attrs.page || 1;
+                $res,
+                defaultParams,
+                baseUrl = 'https://public-api.wordpress.com/rest/v1/sites/:site/posts/',
+                attrs = params || {};
 
-            $http({
-                method:'JSONP',
-                url: 'https://public-api.wordpress.com/rest/v1/sites/metrouk2.wordpress.com/posts/?number=' + number + '&page=' + page + '&callback=JSON_CALLBACK'
-            })
-                .success(function (data, status, headers, config) {
-                    deferred.resolve( data );
-                })
-                .error(function (data, status, headers, config) {
-                    deferred.reject( status );
-                });
+
+            defaultParams = {
+                site : 'metrouk2.wordpress.com',
+                number : attrs.number || 5,
+                page : attrs.page || 1,
+                callback: 'JSON_CALLBACK'
+            };
+
+            $res = $resource(baseUrl, {'_': new Date().getTime()}, {
+                get: {'method': 'JSONP', 'params': defaultParams, isArray: false}
+            });
+
+            $res.get({},
+                function (response) {
+                    var success = parseInt(response.found, 10) > 0;
+                    if (success) {
+                        deferred.resolve( response);
+                    } else {
+                        deferred.reject(response);
+                    }
+                },
+                function (response) {
+                    deferred.reject(response);
+                }
+            );
 
             return deferred.promise;
 
         },
         getNewsDetail: function (slug) {
-            var deferred = $q.defer();
+            var recipe ={};
 
-            $http({
-                method:'JSONP',
-                url: "https://public-api.wordpress.com/rest/v1/sites/metrouk2.wordpress.com/posts/slug:" + slug + "?callback=JSON_CALLBACK"
-            })
-            .success(function (data, status, headers, config) {
-                deferred.resolve( data );
-            })
-            .error(function (data, status, headers, config) {
-                deferred.reject( status );
-            });
+            recipe = _.where(this.newsList, {slug: slug});
 
-            return deferred.promise;
+            if (_.isEmpty(recipe)) {
+                console.log('ssssss');
+                var deferred = $q.defer();
 
+                $http({
+                    method:'JSONP',
+                    url: "https://public-api.wordpress.com/rest/v1/sites/metrouk2.wordpress.com/posts/slug:" + slug + "?callback=JSON_CALLBACK"
+                })
+                    .success(function (data, status, headers, config) {
+                        deferred.resolve( data );
+                    })
+                    .error(function (data, status, headers, config) {
+                        deferred.reject( status );
+                    });
+
+                return deferred.promise;
+            }
+
+            return recipe[0];
+        },
+        addNews: function (news) {
+
+             this.newsList.push(news);
         }
     };
 }]);

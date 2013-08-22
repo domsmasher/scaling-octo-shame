@@ -7,9 +7,16 @@ app.controller('HomeCtrl', ['$scope', 'Page', function($scope, Page) {
 }]);
 
 app.controller('TopNewsCtrl', ['$scope', 'newsData', function($scope, newsData) {
+    var newsObj = newsData.getNewsList();
+
+    $scope.topNews = [];
     $scope.loading = true;
-    $scope.topNews = newsData.getNewsList();
-    $scope.topNews.then(function () {
+
+    newsObj.then(function (newsList) {
+        angular.forEach(newsList.posts, function (value, key) {
+            $scope.topNews.push(value);
+            newsData.addNews(value);
+        });
         $scope.loading = false;
     });
 }]);
@@ -19,24 +26,28 @@ app.controller('NewsCtrl', ['$scope', 'newsData', function($scope, newsData) {
     $scope.currentPage = 1;
 
     $scope.loading = true;
-    $scope.newsLista = [];
+    $scope.newsList = [];
     newsObj.then(function (newsList) {
 
         angular.forEach(newsList.posts, function (value, key) {
-            $scope.newsLista.push(value);
+            $scope.newsList.push(value);
+            newsData.addNews(value);
         });
         $scope.loading = false;
     });
 
     $scope.moreContent = function () {
+        var more;
+
+        $scope.currentPage += 1;
         $scope.loading = true;
-        var more = newsData.getNewsList({number: 10, page: $scope.currentPage});
+        more = newsData.getNewsList({number: 10, page: $scope.currentPage});
 
         more.then(function (newsList) {
             angular.forEach(newsList.posts, function (value, key) {
                 $scope.newsLista.push(value);
+                newsData.addNews(value);
             });
-            $scope.currentPage += 1;
             $scope.loading = false;
         });
     };
@@ -45,7 +56,7 @@ app.controller('NewsCtrl', ['$scope', 'newsData', function($scope, newsData) {
 app.controller('DetailCtrl', ['$scope', '$routeParams', 'newsData', 'Page', function($scope, $routeParams, newsData, Page) {
     var slug = (($routeParams.slug) ? $routeParams.slug : '');
     $scope.oneNews = newsData.getNewsDetail(slug);
-    $scope.oneNews.then(function (oneNews) {
-        Page.setTitle(oneNews.title);
-    });
+    //$scope.oneNews.then(function (oneNews) {
+        Page.setTitle($scope.oneNews.title);
+    //});
 }]);
