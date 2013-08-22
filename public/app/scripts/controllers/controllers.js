@@ -45,7 +45,7 @@ app.controller('NewsCtrl', ['$scope', 'newsData', function($scope, newsData) {
 
         more.then(function (newsList) {
             angular.forEach(newsList.posts, function (value, key) {
-                $scope.newsLista.push(value);
+                $scope.newsList.push(value);
                 newsData.addNews(value);
             });
             $scope.loading = false;
