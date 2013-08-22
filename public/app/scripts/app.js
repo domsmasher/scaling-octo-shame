@@ -1,4 +1,4 @@
-var app = angular.module('SOSApp', ['ngResource']);
+var app = angular.module('SOSApp', ['SOSApp.services']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
