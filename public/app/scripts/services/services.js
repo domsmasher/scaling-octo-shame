@@ -1,23 +1,34 @@
 var services = angular.module('SOSApp.services', ['ngResource']);
 
 services.factory('News', ['$resource', function($resource) {
-    return $resource('https://public-api.wordpress.com/rest/v1/sites/:site/posts/slug\::slug', {site: '@site', slug: '@slug'});
+    var baseUrl = 'https://public-api.wordpress.com/rest/v1/sites/:site/posts/:slug',
+        defaultParams = {
+            site : 'metrouk2.wordpress.com',
+            number : 5,
+            page : 1,
+            slug: '',
+            callback: 'JSON_CALLBACK'
+        };
+
+    return $resource(baseUrl, {'site': '@site'}, {
+        get: {'method': 'JSONP', 'params': defaultParams, isArray: false}
+    });
+    //return $resource('https://public-api.wordpress.com/rest/v1/sites/:site/posts/', {site: '@site'});
 }]);
 
 app.factory('newsData', ['News', '$http', '$resource', '$q', function (News, $http, $resource, $q) {
     return {
         newsList: [],
         getNewsList: function (params) {
+
             var deferred = $q.defer(),
                 attrs = params || {},
                 defaultParams = {
-                    site : 'metrouk2.wordpress.com',
                     number : attrs.number || 5,
-                    page : attrs.page || 1,
-                    callback: 'JSON_CALLBACK'
+                    page : attrs.page || 1
                 };
 
-            News.get({'method': 'JSONP', 'params': defaultParams, isArray: false},
+            News.get(defaultParams,
                 function (response) {
                     var success = parseInt( response.found, 10 ) > 0;
 
@@ -44,15 +55,14 @@ app.factory('newsData', ['News', '$http', '$resource', '$q', function (News, $ht
                 var deferred = $q.defer(),
                     attrs = params || {},
                     defaultParams = {
-                        site: 'metrouk2.wordpress.com',
-                        slug: slug,
-                        callback: 'JSON_CALLBACK'
+                        slug: 'slug:' + slug,
+                        page: '',
+                        number: ''
                     };
 
-                News.get({'method': 'JSONP', 'params': defaultParams, isArray: false},
+                News.get(defaultParams,
                     function (response) {
-                        var success = parseInt( response.found, 10 ) > 0;
-
+                        var success = response.ID !== 0;
                         if (success) {
                             deferred.resolve( response );
                         } else {

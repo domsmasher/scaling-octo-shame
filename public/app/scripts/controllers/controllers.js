@@ -57,6 +57,7 @@ app.controller('DetailCtrl', ['$scope', '$routeParams', 'newsData', 'Page', func
     var slug = (($routeParams.slug) ? $routeParams.slug : '');
     $scope.oneNews = newsData.getNewsDetail(slug);
     $scope.oneNews.then(function (oneNews) {
+        console.log(oneNews);
         Page.setTitle(oneNews.title);
     });
 }]);
