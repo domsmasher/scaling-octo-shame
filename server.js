@@ -37,12 +37,24 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 
-app.get('/', function(req,res) {
+//app.get('/', function(req,res) {
+//    res.sendfile('public/app/index.html');
+//});
+
+app.get('/', function (req, res) {
+    res.render('index', {
+        description: 'Scaling Octo Shame',
+        author: 'Matteo Gildone'});
+});
+
+app.get('/app/', function(req,res) {
     res.sendfile('public/app/index.html');
 });
 
 app.get('/:slug/', function(req,res) {
-    res.sendfile('public/app/index.html');
+    res.render('index', {
+        description: 'Scaling Octo Shame',
+        author: 'Matteo Gildone'});
 });
 
 app.get('/public/app/views/:fileName', function (req, res) {

@@ -20,9 +20,9 @@ module.exports = function(grunt) {
         paths: {
             theme: basePath,
             //where to store built files
-            js: '<%= paths.theme %>/public/js',
+            js: '<%= paths.theme %>/public/app/scripts',
             //css
-            css: '<%= paths.theme %>/public/css',
+            css: '<%= paths.theme %>/public/app/styles',
             //stylus
             stylus: '<%= paths.theme %>/stylus'
         },
@@ -40,8 +40,24 @@ module.exports = function(grunt) {
                 banner: bannerContent
             },
             target: {
-                dest: minRelease,
-                src: devRelease
+                src: [
+                    '<%= paths.js %>/vendor/lodash.js',
+                    '<%= paths.js %>/vendor/angular.js',
+                    '<%= paths.js %>/vendor/angular-resource.js',
+                    '<%= paths.js %>/app.js',
+                    '<%= paths.js %>/services/services.js',
+                    '<%= paths.js %>/controllers/controllers.js',
+                    '<%= paths.js %>/filters/filters.js',
+                    '<%= paths.js %>/directives/directives.js',
+                ],
+                dest: '<%= paths.js %>/build.min.js'
+            }
+        },
+        cssmin: {
+            minify: {
+                files: {
+                    '<%= paths.css %>/output.css': ['<%= paths.css %>/normalize.css', '<%= paths.css %>/style.css']
+                }
             }
         },
         jshint: {
@@ -76,8 +92,8 @@ module.exports = function(grunt) {
                 dest: devRelease
             },
             minified: {
-                src: minRelease,
-                dest: minRelease
+                src: ['<%= paths.js %>/**/*.js'],
+                dest: ['<%= paths.js %>/js.min.js']
             }
         },
         stylus: {
@@ -127,7 +143,8 @@ module.exports = function(grunt) {
         'grunt-contrib-jshint',
         'grunt-contrib-csslint',
         'grunt-contrib-copy',
-        'grunt-contrib-stylus'
+        'grunt-contrib-stylus',
+        'grunt-contrib-cssmin'
     ].forEach(grunt.loadNpmTasks);
 
     grunt.registerTask('default', 'watch');
@@ -140,7 +157,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('min', 'Tasks for the concatenation and minification of javascript files', function () {
-        var tasks = ['concat', 'uglify'];
+        var tasks = ['concat', 'uglify', 'cssmin'];
 
         grunt.option('force', true);
         grunt.task.run(tasks);

@@ -1,7 +1,7 @@
 var services = angular.module('SOSApp.services', ['ngResource']);
 
 services.factory('News', ['$resource', function($resource) {
-    return $resource('https://public-api.wordpress.com/rest/v1/sites/:site/posts/', {site: '@site'});
+    return $resource('https://public-api.wordpress.com/rest/v1/sites/:site/posts/slug\::slug', {site: '@site', slug: '@slug'});
 }]);
 
 app.factory('newsData', ['News', '$http', '$resource', '$q', function (News, $http, $resource, $q) {
@@ -9,7 +9,6 @@ app.factory('newsData', ['News', '$http', '$resource', '$q', function (News, $ht
         newsList: [],
         getNewsList: function (params) {
             var deferred = $q.defer(),
-                baseUrl = 'https://public-api.wordpress.com/rest/v1/sites/:site/posts/',
                 attrs = params || {},
                 defaultParams = {
                     site : 'metrouk2.wordpress.com',
@@ -18,11 +17,7 @@ app.factory('newsData', ['News', '$http', '$resource', '$q', function (News, $ht
                     callback: 'JSON_CALLBACK'
                 };
 
-            News = $resource(baseUrl, {'_': new Date().getTime()}, {
-                get: {'method': 'JSONP', 'params': defaultParams, isArray: false}
-            });
-
-            News.get({},
+            News.get({'method': 'JSONP', 'params': defaultParams, isArray: false},
                 function (response) {
                     var success = parseInt( response.found, 10 ) > 0;
 
@@ -46,16 +41,30 @@ app.factory('newsData', ['News', '$http', '$resource', '$q', function (News, $ht
 
             if (_.isEmpty(recipe)) {
 
-                $http({
-                    method:'JSONP',
-                    url: "https://public-api.wordpress.com/rest/v1/sites/metrouk2.wordpress.com/posts/slug:" + slug + "?callback=JSON_CALLBACK"
-                })
-                .success(function (data, status, headers, config) {
-                    deferred.resolve( data );
-                })
-                .error(function (data, status, headers, config) {
-                    deferred.reject( status );
-                });
+                var deferred = $q.defer(),
+                    attrs = params || {},
+                    defaultParams = {
+                        site: 'metrouk2.wordpress.com',
+                        slug: slug,
+                        callback: 'JSON_CALLBACK'
+                    };
+
+                News.get({'method': 'JSONP', 'params': defaultParams, isArray: false},
+                    function (response) {
+                        var success = parseInt( response.found, 10 ) > 0;
+
+                        if (success) {
+                            deferred.resolve( response );
+                        } else {
+                            deferred.reject( response );
+                        }
+                    },
+                    function (response) {
+                        deferred.reject(response);
+                    }
+                );
+
+                return deferred.promise;
 
             } else {
                 deferred.resolve( recipe[0] );
