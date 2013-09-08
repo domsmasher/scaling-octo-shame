@@ -1,22 +1,4 @@
 <div ng-controller="HomeCtrl">
-    <div ng-controller="TopNewsCtrl">
-        <ul>
-            <li ng-repeat="news in topNews" ng-class="{'first':$first}" class="list-item">
-                <a href="/{{news.slug}}/">
-                    <div class="img-container">
-                        <img ng-src="{{news.featured_image}}?w=228&h=100&crop=1" alt=""/>
-                    </div>
-                    <div class="text-container">
-                        <h3 ng-bind-html-unsafe="news.title"></h3>
-                        <p ng-bind-html-unsafe="news.excerpt"></p>
-                    </div>
-
-                </a>
-            </li>
-        </ul>
-        <div ng-show="loading" class="ajax-loader">Loading...</div>
-    </div>
-
     <div ng-controller="NewsCtrl">
         <h1>Latest news</h1>
         <ul>

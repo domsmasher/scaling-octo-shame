@@ -94,7 +94,6 @@ app.factory('Page', function(){
     return {
         title: function() { return title; },
         setTitle: function(newTitle) {
-            console.log(newTitle)
             title = (newTitle ? newTitle + ' - ': '') + defaultTitle;
         }
     };

@@ -1,24 +1,12 @@
 app.controller('MainCtrl', ['$scope', 'Page', function($scope, Page) {
-    $scope.page = Page;
+    $scope.$on('title:changed', function (){
+        $scope.page = Page.title();
+    });
 }]);
 
 app.controller('HomeCtrl', ['$scope', 'Page', function($scope, Page) {
     Page.setTitle('');
-}]);
-
-app.controller('TopNewsCtrl', ['$scope', 'newsData', function($scope, newsData) {
-    var newsObj = newsData.getNewsList();
-
-    $scope.topNews = [];
-    $scope.loading = true;
-
-    newsObj.then(function (newsList) {
-        angular.forEach(newsList.posts, function (value, key) {
-            $scope.topNews.push(value);
-            newsData.addNews(value);
-        });
-        $scope.loading = false;
-    });
+    $scope.$emit('title:changed');
 }]);
 
 app.controller('NewsCtrl', ['$scope', 'newsData', function($scope, newsData) {
@@ -57,7 +45,7 @@ app.controller('DetailCtrl', ['$scope', '$routeParams', 'newsData', 'Page', func
     var slug = (($routeParams.slug) ? $routeParams.slug : '');
     $scope.oneNews = newsData.getNewsDetail(slug);
     $scope.oneNews.then(function (oneNews) {
-        console.log(oneNews);
         Page.setTitle(oneNews.title);
+        $scope.$emit('title:changed');
     });
 }]);
